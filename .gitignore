@@ -1,0 +1,14 @@
+# Ignore logos directory
+logos/
+
+# Ignore log files
+*.log
+
+# Ignore virtual environments if you have one
+venv/
+.env/
+
+# Ignore other temporary or build files
+__pycache__/
+*.pyc
+*.pyo
