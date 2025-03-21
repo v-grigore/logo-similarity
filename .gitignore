@@ -1,5 +1,6 @@
 # Ignore logos directory
 logos/
+clustered_logos
 
 # Ignore log files
 *.log
