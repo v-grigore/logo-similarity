@@ -17,7 +17,7 @@ Save clustered images to `clustered_logos/`
 ```
 python3 main.py --save
 ```
-Ouput clusters saved to `data/output.db`
+Output clusters saved to `data/output.db`
 
 ## Implementation details
 
@@ -40,11 +40,11 @@ Overall success rate: 96.14%.
 ### Step 2: Logo recognition
 The next step was implementing a way to extract important features from every logo, so that I could compare the logos between them. But before implementing feature extraction, I had to add
 a preprocessing step so that each `.png` file had the same aspect ratio and resolution. I also had to remove alpha channel from images, because some extraction methods only work with "RGB" mode.
-This meant I had to calculate average brigthness for each image, to determine whether to use black or white bg color (otherwise some of the all black/all white logos would be lost).
+This meant I had to calculate average brightness for each image, to determine whether to use black or white bg color (otherwise some of the all black/all white logos would be lost).
 
 After preprocessing images, I had multiple ways of implementing feature extraction. First methods I tried were SIFT and ORB algorithms, which resulted in a pretty mediocre feature extraction, but
 a really bad performance. Then I decided to try histogram extraction, assuming logos were simple enough for color distribution comparison. The histogram method yielded terrible results however, so
-I decided to try a CNN model. Since I didn't have a large enough dataset, and training a model specifically for logo recogntion would take a lot of time and resources, I decided to use a
+I decided to try a CNN model. Since I didn't have a large enough dataset, and training a model specifically for logo recognition would take a lot of time and resources, I decided to use a
 pre-trained model.
 
 After trying ResNet50 and MobileNetV2 pre-trained models, I decided to stick with MobileNetV2, which produced slightly better results while also being a little bit faster (~6 logos/sec vs ~4
